@@ -16,7 +16,7 @@ function solution(priorities, location) {
     let cnt = 0;
     
     while(true) {
-      	max = Math.max.apply(null, priorities);
+      	max = Math.max.apply(null, priorities); //max = Math.max.apply(null, priorities); priorities 배열에서 가장 높은 수를 빼낸다.
         let n = priorities.shift(); //맨 앞의 요소를 빼낸다
         
         if (n === max) { //꺼낸 요소가 max와 같으면
@@ -36,7 +36,7 @@ function solution(priorities, location) {
 }
 let abc=[2, 1, 3, 2];
 let lo=2;
-console.log(abc,lo);
+console.log(solution(abc,lo));
 </script>
 </body>
 </html>
