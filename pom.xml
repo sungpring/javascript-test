@@ -92,9 +92,9 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
-					<jvmArguments>
-					-Djava.security.egd=file:/dev/./urandom
-					</jvmArguments>
+					<jvmarguments>
+						-Djava.security.egd=file:/dev/./urandom
+					</jvmarguments>
 				</configuration>
 			</plugin>
 		</plugins>
