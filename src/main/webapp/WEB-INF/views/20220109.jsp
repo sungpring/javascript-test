@@ -15,8 +15,10 @@ function solution(lottos, win_nums) {
     const rank = [6, 6, 5, 4, 3, 2, 1];
 
     let minCount = lottos.filter(v => win_nums.includes(v)).length;
+    //lottos 배열애서 filter 로 win_nums의 include 된 번호를 제거해주고 그에 따른 배열길이를 카운트 해줌
     let zeroCount = lottos.filter(v => !v).length;
-
+	//(v => !v) 0, undefined, null 기타 등등의 값이 아닌 경우를 filter 로 제거해주고 0만 남은 배열의 길이를 카운트 해줌
+    
     const maxCount = minCount + zeroCount;
 
     return [rank[maxCount], rank[minCount]];
