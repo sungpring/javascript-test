@@ -13,6 +13,25 @@
 .blind{position:absolute;overflow:hidden;clip:rect(0 0 0 0);width:1px;height:1px;margin:-1px}
 /*블라인드 클래스를 clip:rect() 모두 0으로 주어서 안보이게끔 설정한 것이다.*/
 
+a { text-decoration:none; } /* a 태그 밑줄 없애기 */
+* {margin:0; padding:0;} /* 상단 여백 없애는 css */
+.news_header { }
+.Ngnb { position:absolute; background : #4063bf; height: 50px; width:100%;}
+.Ngnb_both>div {display: inline-block;}
+.Naver_logo {font-weight:bold; font-size:1.5em;}
+.Nicon_service {font-weight:bold; font-size:1.2em;}
+
+.Ngnb_left span {color:white;}
+.Ngnb_left{ margin-left:250px; margin-top: 5px; }
+.Ngnb_left>div { position:relative; display: inline-block; }
+.Nservice_subitem span {opacity: 0.33;display: inline-block; vertical-align: top; }
+.Nicon_family::after{ content:"|"; font-weight:100; font-size:13px; opacity: 0.33; margin-left:5px; padding-bottom: 13px;}
+
+.Ngnb_right span {color:white;}
+.Ngnb_right { float:right; margin-right:250px; margin-top: 13px; }
+.Ngnb_right>div { position:relative; display: inline-block;  }
+
+.Nlnb{ position:absolute; top:50px; height: 50px; width:100%; }
 
 </style>
 </head>
@@ -26,15 +45,15 @@
 					<div class="Ngnb_left">
 						<div class="Ngnb_logo">
 							<a href="https://www.naver.com" onclick="return false;" class="Nlogo_link">
-								<span class="Naver_logo">NAVER</span>
+								<span class="Naver_logo">N</span>
 							</a>
 						</div>
 						<div class="Ngnb_service">
-							<h1 class="Nservice_item">
+							<span class="Nservice_news">
 								<a href="https://news.naver.com" onclick="return false;">
-									<span class="Nicon_service">뉴스<!-- before 뉴스 --></span>
+									<span class="Nicon_family Nicon_service">뉴스<!-- before 뉴스 --></span>
 								</a>
-							</h1>
+							</span>
 							<span class="Nservice_subitem">
 								<a href="https://entertain.naver.com/home" onclick="return false;">
 									<span class="Nicon_family Nicon_entertain">연애<!-- before 연예 --></span>
@@ -61,7 +80,7 @@
 						<div class="Ngnb_group">
 							<div id="gnb" class="gnb_dark_type2">
 								<strong class="blind">사용자 링크</strong>
-								<ul class="gnb_lst" id="gnb_lst" style="display:block;">
+								<ul class="gnb_lst" id="gnb_lst">
 									<li class="gnb_login_li" id="gnb_login_layer" style="display:inline-block;">
 										<a class="gnb_btn_login" href="https://nid.naver.com/nidlogin.login" id="gnb_login_button">
 											<span class="gnb_bg"></span>
