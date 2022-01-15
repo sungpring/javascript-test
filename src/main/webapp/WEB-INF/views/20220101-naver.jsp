@@ -241,7 +241,7 @@ html { overflow-x:hidden; } /* 세로 스크롤 */
 								<a href="javascript:;" class="list_title">언니는 119억, 동생은 209억... 틱톡 수입 1·2위 휩쓴 자매 동영상 보니</a>
 								<span class="list_time">1시간전</span>
 							</div>
-							<a href="javascript:;" class="list_img"><img src="../resources/index/img/card_list_area/mbc_inside_card_img_1.jpg" width="70" height="70"></a>
+							<a href="javascript:;" class="list_img"><img src="../resources/index/img/card_list_area/mbc_inside_card_img_1.jpg" width="70" height="70"> </a>
 						</li>
 					</ul>
 				</div>
