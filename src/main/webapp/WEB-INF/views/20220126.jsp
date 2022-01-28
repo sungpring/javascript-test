@@ -13,6 +13,7 @@ https://programmers.co.kr/learn/courses/30/lessons/92334?language=javascript<br>
 https://velog.io/@dnjsdud2257/%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%8B%A0%EA%B3%A0-%EA%B2%B0%EA%B3%BC-%EB%B0%9B%EA%B8%B0-JavaScript 참조<br>
 <script>
 function solution(id_list, report, k) {
+	
 	const answer = new Array(id_list.length);
 	answer.fill(0) 
 	const report_list = {} //
@@ -36,7 +37,8 @@ function solution(id_list, report, k) {
 	        })
 	    }
 	}
-    /*
+	
+	/*
     //중복 신고 제거 로직
     let reportList = [];
     report.forEach((e)=>{
@@ -53,8 +55,15 @@ function solution(id_list, report, k) {
 		reportedPerson.push(val.split(' ')[1]);
     }
 	
+	report.map((user)=>{
+	    const [user_id, report_id] = user.split(' ')
+	    if(!report_list[report_id].includes(user_id)){
+	        report_list[report_id].push(user_id)
+	    }        
+	})
+    
     for(let i=0; i<id_list.length; i++){
-    	val
+ 
     }
 	
 	console.log(reportPerson);
