@@ -12,8 +12,7 @@
 https://programmers.co.kr/learn/courses/30/lessons/67256?language=javascript<br>
 <script>
 
-function solution(s) {
-	var answer = 0;
+function solution(numbers, hand) {
 	/*				  L			  R
 		1 2 3		[1,4] [2,4] [3,4] x,y축으로
 		4 5 6  - >  [1,3] [2,3] [3,3]
@@ -31,21 +30,6 @@ function solution(s) {
 	
 	
 	*/
-	let leftHandLocation;
-	let rightHandLocation;
-	
-	let numLocationList = [
-		[1,4],[2,4],[3,4],
-		[1,3],[2,3],[3,3],
-		[1,2],[2,2],[3,2],
-		[1,1],[2,1],[3,1]
-	];
-	
-	var moveDistanceCal = function () {
-		// 2, 5, 8, 0 은 왼손 오른손 다 가능함 // 
-		
-	    return 'A function expression';
-	}
 	
 	let num = {
 		"1":{"x":1,"y":4},
@@ -59,19 +43,47 @@ function solution(s) {
 		"7":{"x":1,"y":2},
 		"8":{"x":2,"y":2},
 		"9":{"x":3,"y":2},
-
+	
 		"*":{"x":1,"y":1},
 		"0":{"x":2,"y":1},
 		"#":{"x":3,"y":1}
 	};
-
 	
-	console.log(num);
 	
-    return answer;
+	let leftHandLocation = "*";
+	let rightHandLocation = "#";
+	
+	var moveDistanceCal = function (arr) {
+		// 2, 5, 8, 0 은 왼손 오른손 다 가능함 // 
+		let resultVal = "";
+		let arrStr=arr.map(i=>String(i));
+		arrStr.forEach(e => {
+			//console.log("Left: "+leftHandLocation+" : Right: "+rightHandLocation);
+				if(e == "1" ||e == "4"||e == "7"){
+					resultVal+="L";
+					leftHandLocation = e;
+				}else if(e == "2" ||e == "5"||e == "8"||e == "0"){
+					let leftVal=Math.abs(num[leftHandLocation]["x"]-num[e]["x"])+Math.abs(num[leftHandLocation]["y"]-num[e]["y"]);
+					let rightVal=Math.abs(num[rightHandLocation]["x"]-num[e]["x"])+Math.abs(num[rightHandLocation]["y"]-num[e]["y"]);
+					
+					leftVal<rightVal ? (resultVal+="L", leftHandLocation = e): '' ;
+					leftVal>rightVal ? (resultVal+="R", rightHandLocation = e): '' ;
+					(leftVal==rightVal && hand == "left" ) ? (resultVal+="L", leftHandLocation = e): '' ;
+					(leftVal==rightVal && hand == "right" ) ? (resultVal+="R", rightHandLocation = e): '' ;
+					
+				}else if(e == "3" || e == "6"|| e == "9"){
+					resultVal+="R";
+					rightHandLocation = e; 
+				} 
+			}
+		);
+	    return resultVal;
+	}
+	
+    return moveDistanceCal(numbers);
 }
-let s ="one4seveneight";
-console.log(solution(s));
+
+console.log(solution([7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2],"left"));
 </script>
 </body>
 </html>

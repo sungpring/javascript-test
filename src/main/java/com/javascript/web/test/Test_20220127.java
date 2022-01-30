@@ -9,6 +9,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Test_20220127 {
+	
+	
+	
 	public static void main(String[] args) throws IOException {
 		//https://www.acmicpc.net/problem/1652
 		/*
@@ -32,7 +35,6 @@ public class Test_20220127 {
 			여러개의 문자열 리스트에서 두번째만 뽑고 
 		 */
 		
-		/*
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String strNum=br.readLine();
 		Integer number = Integer.parseInt(strNum);
@@ -52,30 +54,27 @@ public class Test_20220127 {
 			}
 			arrStrHeight.add(arrVal);
 		}
-		
-		ArrayList<Boolean> arrBoolWidth = new ArrayList<>();
-		ArrayList<Boolean> arrBoolHeight = new ArrayList<>();
-		
-		for(int i=0; i<arrStrWidth.size(); i++) {
-			Pattern pt = Pattern.compile("(\\.{2,})");
-			Matcher matWidth = pt.matcher(arrStrWidth.get(i));
-			Matcher matHeight = pt.matcher(arrStrHeight.get(i));
-			arrBoolWidth.add(matWidth.find());
-			arrBoolHeight.add(matHeight.find());
-		}
-		
-		int firstNum = Collections.frequency(arrBoolWidth, true);
-		int secondNum = Collections.frequency(arrBoolHeight, true);
+
+		int firstNum =countWidthHeight(arrStrWidth);
+		int secondNum =countWidthHeight(arrStrHeight);
 		
 		System.out.println(firstNum+" "+secondNum);
-		*/
+
+	}
+	
+	private static int countWidthHeight(ArrayList<String> arrStrWidthHeight) {
 		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String strNum=br.readLine();
-		Pattern pt = Pattern.compile("(\\.{2,})");
-		Matcher matWidth = pt.matcher(strNum);
-		int i=matWidth.regionEnd();
-		int j = matWidth.regionStart();
-		System.out.println(i+""+j);
+		int widthNum = 0;
+		
+		for(int i=0; i<arrStrWidthHeight.size(); i++) {
+			Pattern pt = Pattern.compile("(\\.{2,})");
+			String[] arrStrSplitX = arrStrWidthHeight.get(i).split("X");
+			for(int j=0; j<arrStrSplitX.length; j++) {
+				Matcher matWidth = pt.matcher(arrStrSplitX[j]);
+				if(matWidth.find() == true) widthNum++;
+			}
+		}
+		
+		return widthNum;
 	}
 }
