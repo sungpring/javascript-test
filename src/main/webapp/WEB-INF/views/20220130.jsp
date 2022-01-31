@@ -9,6 +9,15 @@
 <meta charset="UTF-8" />
 </head>
 <body>
+https://programmers.co.kr/learn/courses/30/lessons/67256?language=javascript<br>
+<script>
 
+function solution(numbers, hand) {
+	
+    return moveDistanceCal(numbers);
+}
+
+console.log(solution([7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2],"left"));
+</script>
 </body>
 </html>
