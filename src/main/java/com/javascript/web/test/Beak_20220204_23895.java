@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Test_20220204 {
+public class Beak_20220204_23895 {
 	
 	//https://www.acmicpc.net/problem/23895
 	
