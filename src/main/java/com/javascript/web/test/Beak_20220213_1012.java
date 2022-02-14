@@ -27,46 +27,51 @@ public class Beak_20220213_1012 {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		testCaseNum=Integer.parseInt(br.readLine());
-		
-		for(int i=0; i<testCaseNum; i++) {
+		if(testCaseNum != 0) {
 			
-			String[] str=br.readLine().split(" ");
-			mapVertical = Integer.parseInt(str[1]);
-			mapHori = Integer.parseInt(str[0]); 
-			mapCount = Integer.parseInt(str[2]);
-			///System.out.println(mapHori);
-			//System.out.println(mapVertical);
-			//System.out.println(mapCount);
-			map = new int [mapVertical][mapHori]; // 10 8 17 로 들어오면 10이 가로 8이 세로임. 고로 세로죽[8]가로축[10] 이 되어야함
-			checked  = new boolean [mapVertical][mapHori];
-			
-			testCaseNumArr = new int[50];
-			bugNum = 0;
-			
-			for(int j=0; j<mapCount; j++) {
-				String[] bugPlace=br.readLine().split(" ");
-				map[Integer.parseInt(bugPlace[1])][Integer.parseInt(bugPlace[0])] = 1;
-			}
-			
-			for(int j=0; j<mapVertical; j++) { //세로
-				for(int k=0; k<mapHori; k++) { //가로
-					if(checked[j][k] == false && map[j][k] == 1) {
-						dfs(j,k);
-						bugNum++;
+			for(int i=0; i<testCaseNum; i++) {
+				
+				String[] str=br.readLine().split(" ");
+				mapVertical = Integer.parseInt(str[1]);
+				mapHori = Integer.parseInt(str[0]); 
+				mapCount = Integer.parseInt(str[2]);
+				if(mapVertical == 0 || mapHori == 0 || mapCount == 0) {
+					resultList.add(0);
+				}else {
+					map = new int [mapVertical][mapHori]; // 10 8 17 로 들어오면 10이 가로 8이 세로임. 고로 세로죽[8]가로축[10] 이 되어야함
+					checked  = new boolean [mapVertical][mapHori];
+					
+					testCaseNumArr = new int[50];
+					bugNum = 0;
+					
+					for(int j=0; j<mapCount; j++) {
+						String[] bugPlace=br.readLine().split(" ");
+						map[Integer.parseInt(bugPlace[1])][Integer.parseInt(bugPlace[0])] = 1;
 					}
+					
+					for(int j=0; j<mapVertical; j++) { //세로
+						for(int k=0; k<mapHori; k++) { //가로
+							if(checked[j][k] == false && map[j][k] == 1) {
+								dfs(j,k);
+								bugNum++;
+							}
+						}
+					}
+					
+					int resultCnt = 0;
+					
+					for(int j=0; j<testCaseNumArr.length; j++) {
+						if(testCaseNumArr[j] != 0) resultCnt++;
+					}
+					resultList.add(resultCnt);
 				}
 			}
 			
-			int resultCnt = 0;
-			
-			for(int j=0; j<testCaseNumArr.length; j++) {
-				if(testCaseNumArr[j] != 0) resultCnt++;
+			for(int i=0; i<resultList.size(); i++) {
+				System.out.println(resultList.get(i));
 			}
-			resultList.add(resultCnt);
-		}
-		
-		for(int i=0; i<resultList.size(); i++) {
-			System.out.println(resultList.get(i));
+		}else {
+			System.out.println(0);
 		}
 	}
 	
