@@ -11,22 +11,16 @@
 <body>
 https://programmers.co.kr/learn/courses/30/lessons/12973?language=javascript<br>
 <script>
-function solution(s)
+function solution(str)
 {
-    var answer = -1;
-	
-    let str = "abc";
-    
+   
     const regex = /([a-z])\1/;
-    let search1 =str.search(regex);
-    if(search1===-1){
-    	return -1;
+    while(str.search(regex) !== -1){
+    	str = str.replace(regex,"");
     }
-    str = str.replace(/([a-z])\1/,"");
-	console.log(str);
-    return answer;
+    return str.length>0 ? 0 : 1 ;
 }
-console.log(solution('solution'));//1
+console.log(solution('aabbccd'));//1
 </script>
 </body>
 </html>
