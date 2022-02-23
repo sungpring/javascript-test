@@ -14,10 +14,16 @@ https://programmers.co.kr/learn/courses/30/lessons/12973?language=javascript<br>
 function solution(s)
 {
     var answer = -1;
-
-    // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
-    console.log('Hello Javascript')
-
+	
+    let str = "abc";
+    
+    const regex = /([a-z])\1/;
+    let search1 =str.search(regex);
+    if(search1===-1){
+    	return -1;
+    }
+    str = str.replace(/([a-z])\1/,"");
+	console.log(str);
     return answer;
 }
 console.log(solution('solution'));//1
