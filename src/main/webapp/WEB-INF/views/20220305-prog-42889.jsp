@@ -13,7 +13,9 @@ https://programmers.co.kr/learn/courses/30/lessons/42889?language=javascript<br>
 https://daesiker.tistory.com/8 copy<br>
 
 <script>
+/*
 function solution(N, stages) {
+
     let answer = [];
 		//실패한 사람은 제외해야되기 떄문에 임시 변수 people생성
     let people = stages.length
@@ -32,7 +34,7 @@ function solution(N, stages) {
     //Array.map() : 배열을 조건에 맞게 변환
     return answer.map( a => a[0]);
 }
-/*
+*/
 function solution(N, stages) {
     var answer = [];
     
@@ -40,7 +42,7 @@ function solution(N, stages) {
     stages.sort().map(function(value){
     	tmpMap[value] === undefined ? tmpMap[value] = 1 :  tmpMap[value] += 1;
     });
-    
+    /* {1:3,2:4....} */
     var userNum = stages.length;
     var failedNum = 0;
     var tmpMap2 = [];
@@ -48,12 +50,13 @@ function solution(N, stages) {
     	let obj = {};
     	let successNum;
     	tmpMap[i+1] === undefined ? successNum = 0 : successNum = tmpMap[i+1];
-    	failedNum = successNum/userNum;
+    	failedNum = successNum/userNum; // 0.5
+    	if(isNaN(failedNum)) failedNum = 0;
     	userNum = userNum - successNum;
     	obj[i+1] = failedNum;
     	tmpMap2.push(obj);
     }
-    
+  	
     tmpMap2.sort(function (a, b) {
     	  let a1= Object.values(a);
     	  let b1= Object.values(b);
@@ -73,8 +76,8 @@ function solution(N, stages) {
     return answer.flat();
     
 }
-*/
-console.log(solution(5, [2, 1, 2, 6, 2, 4, 3, 3])); //[3,4,2,1,5]
+console.log(solution(5, [1, 2, 2, 1, 3])); //32145
+//console.log(solution(5, [2, 1, 2, 6, 2, 4, 3, 3])); //[3,4,2,1,5]
 //console.log(solution(3,	[1,1,1,1,1,2,2,2,3])); //	[4,1,2,3]
 </script>
 </body>
