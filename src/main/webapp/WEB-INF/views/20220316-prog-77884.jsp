@@ -17,7 +17,7 @@ function solution(left, right) {
     
     for(let i=left; i<=right; i++){
     	let result = findNumber(i);
-    	result % 2 == 0 ? answer+=left : answer-=left ;
+    	result % 2 == 0 ? answer+=i : answer-=i ;
     }
     
     function findNumber(num){
