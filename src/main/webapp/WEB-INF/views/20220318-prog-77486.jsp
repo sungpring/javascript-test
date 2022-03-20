@@ -22,11 +22,14 @@ function solution(enroll, referral, seller, amount) {
 	let jsonTree = new Object();
     let calculatedJsonTree = new Object();
     for(let i=0; i<enroll.length; i++){
+    	
     	jsonTree[enroll[i]]=referral[i];
-    	calculatedJsonTree[enroll[i]]=0;
+    	
+    	calculatedJsonTree[enroll[i]] = 0;
     }
   
     /*	jsonTree
+    
     	edward: "mary"
 		emily: "mary"
 		jaimie: "mary"
@@ -65,8 +68,8 @@ function solution(enroll, referral, seller, amount) {
 	
     for(let i=0; i<jsonTreeAmount.length; i++){
     	//if(typeof jsonTreeAmount[i][enroll[i]] !== 'undefined'){ //재귀함수 이용
-    	let key = Object.keys(jsonTreeAmount[i]);
-    	recursiveFunc(key, (jsonTreeAmount[i][key]) * 100);
+    	let key = Object.keys(jsonTreeAmount[i]); //edward
+    	recursiveFunc(key, (jsonTreeAmount[i][key]) * 100); //
     	//}
     }
     
