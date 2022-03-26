@@ -5,14 +5,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="EUC-KR">
 <title>Insert title here</title>
-<meta charset="UTF-8" />
 </head>
 <body>
-https://programmers.co.kr/learn/courses/30/lessons/12982?language=javascript<br>
+
 <script>
 function solution(d, budget) {
-    let arr = d.sort((a, b) => a - b);
+    let arr = d.sort();
     
     let cnt = 0;
     let cntNum = 0;
@@ -21,15 +21,11 @@ function solution(d, budget) {
 		if(cntNum > budget){
     		break;
     	}
-		console.log();
 		cnt++;
     }
     
     return cnt;
 }
-console.log(solution([1,3,2,5,4],9));//3
-console.log(solution([2,2,3,3],10));//4
 </script>
-
 </body>
 </html>
