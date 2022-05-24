@@ -27,7 +27,6 @@ function solution(orders, course) {
             const attached = combinations.map(combi => [e, ...combi]);
             result.push(...attached);
         });
-        console.log(result);
         return result;
     }
     
