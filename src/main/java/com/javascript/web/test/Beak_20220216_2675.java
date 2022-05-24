@@ -27,9 +27,9 @@ public class Beak_20220216_2675 {
 			for(int j=0; j<strArr2.length; j++) {
 				
 				if(strArrResult[i]==null) {
-					strArrResult[i]=strArr2[j].repeat(num);
+					//strArrResult[i]=strArr2[j].repeat(num); java 8에서는 리핏이 안된다.
 				}else {
-					strArrResult[i]+=strArr2[j].repeat(num);
+					//strArrResult[i]+=strArr2[j].repeat(num);
 				}
 			}
 			/*
