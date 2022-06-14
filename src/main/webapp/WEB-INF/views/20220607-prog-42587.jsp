@@ -32,15 +32,19 @@ function solution(priorities, location) {
 		*/
 	let resultArr = [];
 	
-	while(resultArr[0]){
+	while(arr.length > 0){
 		let numArr = arr.shift();
-		
+		if(arr.some(e => e[1] > numArr[1])){
+			arr.push(numArr);
+		}else{
+			resultArr.push(numArr);
+		}
 	}
 	
-    return arr;
+    return resultArr.findIndex(e=> e[0] === location) +1;
     //https://data-jj.tistory.com/62
 }
-console.log(solution([2, 1, 3, 2],2));
+console.log(solution([1, 1, 9, 1, 1, 1],0));
 </script>
 </body>
 </html>
